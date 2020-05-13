@@ -44,10 +44,6 @@ let monthlyRate = principal * (numerator / denominator);
 console.log(monthlyRate);
 
 
-
-// const monthlyRate = principal [numerator] / [denominator];
-
-
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
