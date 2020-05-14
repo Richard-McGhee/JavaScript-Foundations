@@ -81,29 +81,29 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
-const namedPerson = 'oscar';
+const name = 'oscar';
 
-function mortgageCalculator(name){
-    let principal = '200000';
-    let interestRate = '0.05';
-    let years = '30';
+function mortgageCalculator(P, I, N){
+    // let P = '200000';
+    // let I = '0.05';
+    // let N = '30';
 
-    const monthlyInterestRate = interestRate / 12;
+    const monthlyInterestRate = I / 12;
 
-    const periods = years * 12;
+    const periods = N * 12;
 
     let numerator = Math.pow((1 + monthlyInterestRate), periods) * monthlyInterestRate;
 
     let denominator = Math.pow((monthlyInterestRate + 1), periods) - 1;
 
-    let monthlyRate = principal * (numerator / denominator);
+    let monthlyRate = P * (numerator / denominator);
     
     if(name === 'oscar'){
         return console.log(`${name}, your monthly rate is ${monthlyRate}`);
     }
 }
 
-console.log(mortgageCalculator(namedPerson));
+console.log(mortgageCalculator(200000, 0.05, 30));
 
 
 
