@@ -118,14 +118,12 @@ function mortgageCalculator(P, I, N, creditScore){
     // let I = '0.05';
     // let N = '30';
 
-    function score(creditScore){
+    function scoring(creditScore){
         if(creditScore > 740){
             let I = I - .05;
-        }
-        if(creditScore < 660){
+        }else if(creditScore < 660){
             let I = I + .05;
-        }
-        if(600 < creditScore < 740){
+        }else if(600 < creditScore < 740){
             let I = I + 0;
         }
     }
