@@ -164,47 +164,27 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
-const namedPerson = 'oscar';
+function variableInterestRate(principal, rate, years, name){
 
-function variableInterestRate(P, I, N, name){
-    // let P = '200000';
-    // let I = '0.05';
-    // let N = '30';
+    let periods = years*12;
+    let adjustedRate = rate - .02;
 
-    const monthlyInterestRate = I / 12;
+    for(let i = 0; i < 10;i++){
+      let monthlyInterestRate = adjustedRate/12;
 
-    const periods = N * 12;
+      const NUMERATOR = monthlyInterestRate * (Math.pow((1 + monthlyInterestRate), periods));
+      const DENOMINATOR = Math.pow((1 + monthlyInterestRate ), periods) - 1;
+      const MONTHLY_RATE = principal * (NUMERATOR/DENOMINATOR);
+      const ROUNDED = Math.round(MONTHLY_RATE*100) / 100;
 
-    let numerator = Math.pow((1 + monthlyInterestRate), periods) * monthlyInterestRate;
+      console.log( `${name}, with an interest rate of ${Math.round(adjustedRate * 1000)/1000 }, your monthly rate is ${ROUNDED}`);
 
-    let denominator = Math.pow((monthlyInterestRate + 1), periods) - 1;
-
-    let monthlyRate = P * (numerator / denominator);
-    
-    let interestRate = I
-
-    for(let i = 0; i <= 4; i++) {
-        interestRate = interestRate - 0.005;
-        if(name === 'oscar'){
-            (P, interestRate, N);
-            console.log(`${name}, at ${interestRate} your monthly rate is ${monthlyRate}`)
-         }
+      // adjustedRate = adjustedRate + .005;
+      adjustedRate += .005;
     }
-
-    interestRate = I
-    
-
-    for(let i = 0; i <= 4; i++) {
-         interestRate = interestRate + 0.005;
-        console.log(P, interestRate, N);
-    }
-
-    if(name === 'oscar'){
-       return (`${name}, your monthly rate is ${monthlyRate}`);
-    }
+//  adjustedRate = adjustedRate + .005;
 }
-
-console.log(variableInterestRate(200000, 0.04, 30, namedPerson))
+variableInterestRate(200000, 0.04, 30, 'Michael');
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
